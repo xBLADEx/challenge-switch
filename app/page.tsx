@@ -5,23 +5,42 @@ import { Header } from '@/components/header';
 import { ListDevices } from '@/components/list-devices';
 import devices from '@/data/devices.json';
 import { Device } from '@/types/device';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export default function Home() {
-  const [filteredDevices, setFilteredDevices] = useState<Device[]>([]);
   const allDevices = devices as Device[];
-  const listedDevices = filteredDevices.length > 0 ? filteredDevices : allDevices;
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+
+  const filteredDevices = useMemo(() => {
+    let result = allDevices;
+
+    if (searchQuery) {
+      result = result.filter(
+        (device) =>
+          device.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          device.description.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+
+    if (selectedCategory) {
+      result = result.filter((device) => device.category === selectedCategory);
+    }
+
+    return result;
+  }, [allDevices, searchQuery, selectedCategory]);
 
   return (
     <>
       <Header />
       <main className="pb-8">
         <Controls
-          setFilteredDevices={setFilteredDevices}
-          allDevices={allDevices}
-          devices={listedDevices}
+          onClearSearch={() => setSearchQuery('')}
+          onSearch={setSearchQuery}
+          // selectedCategory={selectedCategory}
+          // setSelectedCategory={setSelectedCategory}
         />
-        <ListDevices devices={listedDevices} />
+        <ListDevices devices={filteredDevices} />
       </main>
     </>
   );
