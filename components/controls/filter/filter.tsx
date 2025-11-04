@@ -9,10 +9,11 @@ interface FilterProps {
 export function Filter({ selectedCategory, setSelectedCategory }: FilterProps) {
   return (
     <div className="ml-auto flex items-center gap-2">
-      <ListFilter />
+      <label htmlFor="filter">Filter by:</label>
 
       <select
-        className="ml-2 rounded-md border border-zinc-700 bg-zinc-800 p-2 text-white focus:border-blue-500 focus:outline-none"
+        id="filter"
+        className="rounded-md border border-zinc-700 bg-zinc-800 p-2 text-white focus:border-blue-500 focus:outline-none"
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
@@ -23,6 +24,8 @@ export function Filter({ selectedCategory, setSelectedCategory }: FilterProps) {
           </option>
         ))}
       </select>
+
+      <ListFilter />
     </div>
   );
 }

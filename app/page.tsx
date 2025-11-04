@@ -11,6 +11,7 @@ export default function Home() {
   const allDevices = devices as Device[];
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<string>('');
 
   const filteredDevices = useMemo(() => {
     let result = allDevices;
@@ -27,8 +28,19 @@ export default function Home() {
       result = result.filter((device) => device.category === selectedCategory);
     }
 
+    if (sortOrder) {
+      result = result.sort((a, b) => {
+        if (sortOrder === 'price') {
+          return a.price - b.price;
+        } else if (sortOrder === 'name') {
+          return a.name.localeCompare(b.name);
+        }
+        return 0;
+      });
+    }
+
     return result;
-  }, [allDevices, searchQuery, selectedCategory]);
+  }, [allDevices, searchQuery, selectedCategory, sortOrder]);
 
   return (
     <>
@@ -39,6 +51,8 @@ export default function Home() {
           onSearch={setSearchQuery}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
         />
         <ListDevices devices={filteredDevices} />
       </main>
