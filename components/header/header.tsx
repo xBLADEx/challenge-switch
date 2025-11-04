@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 export function Header() {
@@ -11,16 +9,7 @@ export function Header() {
         <nav className="ml-auto">
           <ul className="flex items-center space-x-2 md:space-x-4">
             <li>
-              <span className="text-zinc-300">Hi, User</span>
-            </li>
-
-            <li>
-              <button
-                onClick={() => {}}
-                className="cursor-pointer rounded bg-white px-4 py-2 text-black"
-              >
-                Sign Out
-              </button>
+              <span className="text-zinc-300">Welcome</span>
             </li>
           </ul>
         </nav>

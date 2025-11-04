@@ -17,7 +17,7 @@ export function Card({ id, title, price, rating, description, category }: CardPr
           href={`/device/${id}`}
           className="inline-block hover:text-blue-400 focus:text-blue-400"
         >
-          <h2 className="mb-1 inline-block text-lg font-semibold">{title}</h2>
+          <h2 className="text-md mb-1 inline-block font-semibold">{title}</h2>
         </Link>
 
         <Favorite id={id} />
@@ -32,7 +32,7 @@ export function Card({ id, title, price, rating, description, category }: CardPr
           <span className="rounded bg-zinc-950 px-2 py-1 text-xs text-white">{categoryName}</span>
         )}
 
-        <span className="text-sm text-zinc-500">
+        <span className="text-sm text-zinc-400">
           Rating: <b>{rating} / 5</b>
         </span>
       </div>
