@@ -20,3 +20,7 @@ Ideally I would use react-query but based on the instructions I didn't think it 
 The trade-off here is now the data is part of my final bundle size. I wanted to note this.
 
 ### Comments
+
+- The search field has a lot more to consider, clearing the search, showing the last searched item or perhaps item(s)?
+- I decided to not reach for Zustand at this moment, while I love it and it can make things simple, I'd rather use react state for searching currently.
+- I should fix when I search but we don't match anything
