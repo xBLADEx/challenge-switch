@@ -37,8 +37,8 @@ export default function Home() {
         <Controls
           onClearSearch={() => setSearchQuery('')}
           onSearch={setSearchQuery}
-          // selectedCategory={selectedCategory}
-          // setSelectedCategory={setSelectedCategory}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
         />
         <ListDevices devices={filteredDevices} />
       </main>

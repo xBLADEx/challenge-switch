@@ -23,5 +23,5 @@ The trade-off here is now the data is part of my final bundle size. I wanted to 
 
 - The search field has a lot more to consider, clearing the search, showing the last searched item or perhaps item(s)?
 - I decided to not reach for Zustand at this moment, while I love it and it can make things simple, I'd rather use react state for searching currently.
-- I should fix when I search but we don't match anything
 - I wasn't going to add too many packages, but I think having a nice UI with a lightweight icon library makes sense. Adding specifically for some of the search/sort UI and forward thinking about favoriting.
+- I approached this project as a small task at a time. I adjusted the state each time a new requirement came up, hopefully this shows my thinking as I worked on each item.
