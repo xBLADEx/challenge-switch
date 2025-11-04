@@ -2,6 +2,7 @@
 
 import { Device } from '@/types/device';
 import { useState } from 'react';
+import { X } from 'lucide-react';
 
 interface SearchProps {
   setFilteredDevices: (devices: Device[]) => void;
@@ -53,7 +54,8 @@ export function Search({ setFilteredDevices, devices, allDevices }: SearchProps)
             onClick={handleClearSearch}
             className="ml-2 cursor-pointer text-gray-500 hover:text-gray-700"
           >
-            <span className="sr-only">Clear search for {appliedSearch}</span>X
+            <span className="sr-only">Clear search for {appliedSearch}</span>
+            <X size={16} />
           </button>
         </div>
       )}
