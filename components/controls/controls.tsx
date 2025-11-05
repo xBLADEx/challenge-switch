@@ -21,11 +21,13 @@ export function Controls({
 }: ControlsProps) {
   return (
     <div className="m-auto mt-8 w-full max-w-7xl px-4">
-      <div className="flex flex-col flex-wrap items-end gap-4 rounded-md bg-zinc-900 p-4 md:flex-row lg:items-center">
+      <div className="flex flex-col flex-wrap gap-4 rounded-md bg-zinc-900 p-4 md:flex-row lg:items-center">
         <h1 className="shrink-0 self-center text-center text-2xl font-bold">Device Store</h1>
         <Search onSearch={onSearch} onClearSearch={onClearSearch} />
-        <Filter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-        <Sort sortOrder={sortOrder} setSortOrder={setSortOrder} />
+        <div className="flex gap-4 self-start md:ml-auto md:items-center">
+          <Filter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+          <Sort sortOrder={sortOrder} setSortOrder={setSortOrder} />
+        </div>
       </div>
     </div>
   );

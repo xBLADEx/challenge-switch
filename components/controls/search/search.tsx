@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Search as SearchIcon } from 'lucide-react';
 
 interface SearchProps {
   onSearch: (query: string) => void;
@@ -29,14 +29,22 @@ export function Search({ onSearch, onClearSearch }: SearchProps) {
 
   return (
     <div className="flex gap-2">
-      <input
-        type="text"
-        placeholder="Search devices..."
-        className="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && handleSearch(inputValue)}
-      />
+      <div className="relative flex items-center">
+        <label htmlFor="search" className="sr-only">
+          Search devices
+        </label>
+        <input
+          type="text"
+          id="search"
+          placeholder="Search devices..."
+          className="w-full rounded-md border border-zinc-700 bg-zinc-800 p-2 text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch(inputValue)}
+        />
+
+        <SearchIcon className="pointer-events-none absolute right-2 text-zinc-500" />
+      </div>
 
       <button
         type="button"
