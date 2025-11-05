@@ -1,3 +1,5 @@
+You can view the live website here: https://challenge-switch.netlify.app/
+
 ## Getting Started
 
 Install packages, then run project.
@@ -27,11 +29,11 @@ The trade-off here is now the data is part of my final bundle size. I wanted to 
 
 ### Commits
 
-- Please notice I used semantic commits fix, feat, etc while also keeping commits small and focused detailing them with descriptive messages.
+- Please notice I used semantic commits; fix, feat, etc. while also keeping commits small and focused detailing them with descriptive messages.
 
 ### State
 
-- I decided to not reach for Zustand at this moment, while I love it and it can make things simple, I'd rather use react state for searching currently.
+- I decided to not reach for Zustand at this moment, while I love it and it can make things simple, I used react state for now.
 - I approached this project as a small task at a time. I adjusted the state each time a new requirement came up, hopefully this shows my thinking as I worked on each item.
 
 ### Tests
@@ -57,4 +59,4 @@ The trade-off here is now the data is part of my final bundle size. I wanted to 
 - I ran the site through page speed insights and improved some accessibility issues with my favorite button not having text.
 - I met AA compliance but some of my text is not AAA compliance. I wanted my cards to have enough visual hierarchy without all the text looking the same, something to refine and further improve.
 - Extra: I wanted to add something else, after looking it over I thought adding "Favorites" as a category to filter by made sense.
-- Edit: I keep finding things to improve, but I hope this shows enough to display my skills.
+- Edit: I keep finding things to improve, but I hope this demonstrates enough to display my skills.
