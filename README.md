@@ -56,3 +56,5 @@ The trade-off here is now the data is part of my final bundle size. I wanted to 
 - I pushed the site live and did some testing and refined the filter and icons.
 - I ran the site through page speed insights and improved some accessibility issues with my favorite button not having text.
 - I met AA compliance but some of my text is not AAA compliance. I wanted my cards to have enough visual hierarchy without all the text looking the same, something to refine and further improve.
+- Extra: I wanted to add something else, after looking it over I thought adding "Favorites" as a category to filter by made sense.
+- Edit: I keep finding things to improve, but I hope this shows enough to display my skills.

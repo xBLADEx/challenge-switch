@@ -19,6 +19,7 @@ export function Filter({ selectedCategory, setSelectedCategory }: FilterProps) {
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
           <option value="">All Categories</option>
+          <option value="favorites">Favorites</option>
           {categories.map(({ id, name }) => (
             <option key={id} value={id}>
               {name}

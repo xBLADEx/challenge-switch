@@ -4,6 +4,7 @@ import { Controls } from '@/components/controls';
 import { Header } from '@/components/header';
 import { ListDevices } from '@/components/list-devices';
 import devices from '@/data/devices.json';
+import { useFavorites } from '@/hooks/use-favorites';
 import { Device } from '@/types/device';
 import { useMemo, useState } from 'react';
 
@@ -12,6 +13,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<string>('');
+  const { isFavorite } = useFavorites();
 
   const filteredDevices = useMemo(() => {
     let result = allDevices;
@@ -25,7 +27,11 @@ export default function Home() {
     }
 
     if (selectedCategory) {
-      result = result.filter((device) => device.category === selectedCategory);
+      if (selectedCategory === 'favorites') {
+        result = result.filter((device) => isFavorite(device.id));
+      } else {
+        result = result.filter((device) => device.category === selectedCategory);
+      }
     }
 
     if (sortOrder) {
@@ -40,7 +46,7 @@ export default function Home() {
     }
 
     return result;
-  }, [allDevices, searchQuery, selectedCategory, sortOrder]);
+  }, [allDevices, searchQuery, selectedCategory, sortOrder, isFavorite]);
 
   return (
     <>
